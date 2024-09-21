@@ -1,0 +1,39 @@
+#card-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card {
+    width: 25vw;
+    height: 75vh;
+    background-color:rgb(154, 205, 50);
+
+    border: 2px solid rgb(108, 142, 40);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.item {
+    height: 50px;
+    width: initial;
+    padding: 5px;
+    word-wrap: break-word;
+    display:flex;
+    justify-content: space-between;
+
+    background-color: white;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+#add-button {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
+.close-button {
+    margin: 5px;
+    align-self: center;
+}
