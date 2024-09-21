@@ -11,18 +11,21 @@
     <h1 style="text-align: center">TO-DO List</h1>
     
     <div id="card-holder">
-        <div class="card" id="task-list">
+        <div class="card" id="todo-task-list">
             <h1>TO-DO</h1>
             <button id="add-button" onclick="AddTask()">+</button>
             <div class="item">
                 <p>Finish This Website</p>
-                <button class="close-button" onclick="RemoveTask(this)">x</button>
+                <div class="buttons">
+                    <button class="move-button" onclick="MoveTask(this)">></button>
+                    <button class="close-button" onclick="RemoveTask(this)">x</button>
+                </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" id="doing-task-list">
             <h1>Currently Doing</h1>
         </div>
-        <div class="card">
+        <div class="card" id="done-task-list">
             <h1>Done</h1>
         </div>
     </div>
