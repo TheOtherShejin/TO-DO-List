@@ -9,8 +9,10 @@ function AddTask() {
         let item = `<div class="item">
             <p>${task}</p>
             <div class="buttons">
-                <button class="move-button" onclick="MoveTask(this)">></button>
+                <button class="up-button" onclick="MoveTaskUp(this)">/\\</button>
                 <button class="close-button" onclick="RemoveTask(this)">x</button>
+                <button class="down-button" onclick="MoveTaskDown(this)">\\/</button>
+                <button class="move-button" onclick="MoveTaskToNextLayer(this)">></button>
             </div>
         </div>`;
         todoTaskList.innerHTML += item;
@@ -22,7 +24,7 @@ function RemoveTask(button) {
     item.remove();
 }
 
-function MoveTask(button) {
+function MoveTaskToNextLayer(button) {
     let item = button.parentElement.parentElement;
     let id = item.parentElement.getAttribute('id');
 
@@ -31,5 +33,33 @@ function MoveTask(button) {
     }
     else if (id == "doing-task-list") {
         doneTaskList.appendChild(item);
+    }
+}
+
+function MoveTaskUp(button) {
+    let item = button.parentElement.parentElement;
+    let parent = item.parentElement;
+    console.log(parent);
+    for (let index = 2; index < parent.children.length; index++) {
+        console.log(index);
+        if (parent.children[index] == item) {
+            let temp = parent.children[index-1].innerHTML;
+            parent.children[index-1].innerHTML = item.innerHTML;
+            parent.children[index].innerHTML = temp;
+        }
+    }
+}
+
+function MoveTaskDown(button) {
+    let item = button.parentElement.parentElement;
+    let parent = item.parentElement;
+    console.log(parent);
+    for (let index = 1; index < parent.children.length-1; index++) {
+        console.log(index);
+        if (parent.children[index] == item) {
+            let temp = parent.children[index+1].innerHTML;
+            parent.children[index+1].innerHTML = item.innerHTML;
+            parent.children[index].innerHTML = temp;
+        }
     }
 }

@@ -35,10 +35,12 @@
 
 
 .buttons {
-    display: flex;
-    flex-direction: column-reverse;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     justify-items: center;
     align-items: center;
+    align-content: end;
 }
 
 .close-button {

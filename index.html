@@ -9,16 +9,18 @@
 </head>
 <body>
     <h1 style="text-align: center">TO-DO List</h1>
-    
+    <button id="add-button" onclick="AddTask()">+</button>
+
     <div id="card-holder">
         <div class="card" id="todo-task-list">
             <h1>TO-DO</h1>
-            <button id="add-button" onclick="AddTask()">+</button>
             <div class="item">
-                <p>Finish This Website</p>
+                <p>Finish This Website.</p>
                 <div class="buttons">
-                    <button class="move-button" onclick="MoveTask(this)">></button>
+                    <button class="up-button" onclick="MoveTaskUp(this)">/\</button>
                     <button class="close-button" onclick="RemoveTask(this)">x</button>
+                    <button class="down-button" onclick="MoveTaskDown(this)">\/</button>
+                    <button class="move-button" onclick="MoveTaskToNextLayer(this)">></button>
                 </div>
             </div>
         </div>
