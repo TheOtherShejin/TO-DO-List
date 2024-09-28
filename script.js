@@ -1,9 +1,10 @@
-var todoTaskListElement = document.getElementById("todo-task-list");
-var doingTaskListElement = document.getElementById("doing-task-list");
-var doneTaskListElement = document.getElementById("done-task-list");
-
 // taskStatus = 0: "todo", 1: "doing", 2: "done"
 var tasks = [["Finish This Website."], [], []];
+var taskListElements = [
+    document.getElementById("todo-task-list"), 
+    document.getElementById("doing-task-list"),
+    document.getElementById("done-task-list")
+];
 
 function GetItemFormat(task) {
     return `<div class="item">
@@ -102,30 +103,15 @@ function Load() {
 }
 
 function Update() {
-    todoTaskListElement.innerHTML = "";
-    doingTaskListElement.innerHTML = "";
-    doneTaskListElement.innerHTML = "";
-
-    for (let i = 0; i < tasks[0].length; i++) {
-        if (i == 6) {
-            todoTaskListElement.innerHTML += `<p class='EoL'>... (${tasks[0].length-i})<p>`;
-            break;
+    for (let i = 0; i < 3; i++) {
+        taskListElements[i].innerHTML = "";
+        for (let j = 0; j < tasks[i].length; j++) {
+            if (j == 6) {
+                taskListElements[i].innerHTML += `<p class='EoL'>... (${tasks[i].length-j})<p>`;
+                break;
+            }
+            taskListElements[i].innerHTML += GetItemFormat(tasks[i][j]);
         }
-        todoTaskListElement.innerHTML += GetItemFormat(tasks[0][i]);
-    }
-    for (let i = 0; i < tasks[1].length; i++) {
-        if (i == 6) {
-            doingTaskListElement.innerHTML += `<p class='EoL'>... (${tasks[1].length - i})<p>`;
-            break;
-        }
-        doingTaskListElement.innerHTML += GetItemFormat(tasks[1][i]);
-    }
-    for (let i = 0; i < tasks[2].length; i++) {
-        if (i == 6) {
-            doneTaskListElement.innerHTML += `<p class='EoL'>... (${tasks[2].length-i})<p>`;
-            break;
-        }
-        doneTaskListElement.innerHTML += GetItemFormat(tasks[2][i]);
     }
 }
 
