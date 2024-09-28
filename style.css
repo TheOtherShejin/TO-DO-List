@@ -1,3 +1,21 @@
+:root {
+    --item-border-color: rgb(50, 50, 50);
+    --card-background-color: rgb(18, 18, 18);
+    --hover-background-color: rgb(40, 40, 40);
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Poppins";
+}
+
+.heading {
+    user-select: none;
+    font-size: 24px;
+    font-weight: 500;
+}
+
 #card-holder {
     display: flex;
     flex-direction: row;
@@ -7,30 +25,58 @@
 .card {
     width: 25vw;
     height: 75vh;
-    background-color:rgb(154, 205, 50);
+    background-color: var(--card-background-color);
 
-    border: 2px solid rgb(108, 142, 40);
     border-radius: 10px;
     text-align: center;
+}
+
+.card > p {
+    margin: 0px;
+    padding: 15px;
+    border-bottom: 1px solid rgb(55, 55, 55);
+}
+
+#todo-card {
+    border: 2px solid rgb(244, 24, 24);
+}
+
+#doing-card {
+    border: 2px solid rgb(221, 245, 6);
+}
+
+#done-card {
+    border: 2px solid rgb(123, 166, 37);
 }
 
 .item {
     height: 50px;
     width: initial;
-    padding: 5px;
+    padding: 7px;
     word-wrap: break-word;
     display: flex;
     justify-content: space-between;
 
-    background-color: white;
-    border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
+    background-color: rgb(18, 18, 18);
+    border-top: 1px solid var(--item-border-color);
+    border-bottom: 1px solid var(--item-border-color);
 }
 
 #add-button {
     position: fixed;
     right: 10px;
     top: 10px;
+
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+
+    background-color: var(--card-background-color);
+    border: 2px solid rgb(14, 185, 253);
+    border-radius: 10px;
+    color: white;
+
+    transition: background-color 0.15s ease-in-out;
 }
 
 
@@ -46,4 +92,26 @@
 .close-button {
     margin: 5px;
     align-self: center;
+}
+
+.EoL {
+    margin: 0px;
+    padding: 5px;
+}
+
+.actions {
+    background-color: var(--card-background-color);
+    color: white;
+    border: 1px solid var(--item-border-color);
+    user-select: none;
+    border-radius: 3px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.actions:hover {
+    background-color: var(--hover-background-color);
+}
+
+#add-button:hover {
+    background-color: var(--hover-background-color);
 }

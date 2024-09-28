@@ -9,10 +9,10 @@ function GetItemFormat(task) {
     return `<div class="item">
         <p>${task}</p>
         <div class="buttons">
-            <button class="up-button" onclick="MoveTaskUp(this)">/\\</button>
-            <button class="close-button" onclick="RemoveTaskButton(this)">x</button>
-            <button class="down-button" onclick="MoveTaskDown(this)">\\/</button>
-            <button class="move-button" onclick="MoveTaskToNextStatus(this)">></button>
+            <button class="up-button actions" onclick="MoveTaskUp(this)">/\\</button>
+            <button class="close-button actions" onclick="RemoveTaskButton(this)">x</button>
+            <button class="down-button actions" onclick="MoveTaskDown(this)">\\/</button>
+            <button class="move-button actions" onclick="MoveTaskToNextStatus(this)">></button>
         </div>
     </div>`;
 }
@@ -107,17 +107,29 @@ function Update() {
     doneTaskListElement.innerHTML = "";
 
     for (let i = 0; i < tasks[0].length; i++) {
+        if (i == 6) {
+            todoTaskListElement.innerHTML += `<p class='EoL'>... (${tasks[0].length-i})<p>`;
+            break;
+        }
         todoTaskListElement.innerHTML += GetItemFormat(tasks[0][i]);
     }
     for (let i = 0; i < tasks[1].length; i++) {
+        if (i == 6) {
+            doingTaskListElement.innerHTML += `<p class='EoL'>... (${tasks[1].length - i})<p>`;
+            break;
+        }
         doingTaskListElement.innerHTML += GetItemFormat(tasks[1][i]);
     }
     for (let i = 0; i < tasks[2].length; i++) {
+        if (i == 6) {
+            doneTaskListElement.innerHTML += `<p class='EoL'>... (${tasks[2].length-i})<p>`;
+            break;
+        }
         doneTaskListElement.innerHTML += GetItemFormat(tasks[2][i]);
     }
 }
 
 window.onload = Load();
 document.addEventListener("keypress", function(event) {
-    if (event.key == 'n') AddTaskFromPrompt();
+    if (event.key == 'n' || event.key == 'N') AddTaskFromPrompt();
 });
