@@ -1,6 +1,6 @@
-let todoTaskListElement = document.getElementById("todo-task-list");
-let doingTaskListElement = document.getElementById("doing-task-list");
-let doneTaskListElement = document.getElementById("done-task-list");
+var todoTaskListElement = document.getElementById("todo-task-list");
+var doingTaskListElement = document.getElementById("doing-task-list");
+var doneTaskListElement = document.getElementById("done-task-list");
 
 // taskStatus = 0: "todo", 1: "doing", 2: "done"
 var tasks = [["Finish This Website."], [], []];
@@ -101,6 +101,9 @@ function Save() {
 
 function Load() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
+    if (tasks == null) {
+        tasks = [[], [], []];
+    }
     Update();
 }
 
