@@ -9,26 +9,20 @@
 </head>
 <body>
     <h1 style="text-align: center">TO-DO List</h1>
-    <button id="add-button" onclick="AddTask()">+</button>
+    <button id="add-button" title="Shortcut (n)" onclick="AddTaskFromPrompt()">+</button>
 
     <div id="card-holder">
-        <div class="card" id="todo-task-list">
+        <div class="card">
             <h1>TO-DO</h1>
-            <div class="item">
-                <p>Finish This Website.</p>
-                <div class="buttons">
-                    <button class="up-button" onclick="MoveTaskUp(this)">/\</button>
-                    <button class="close-button" onclick="RemoveTask(this)">x</button>
-                    <button class="down-button" onclick="MoveTaskDown(this)">\/</button>
-                    <button class="move-button" onclick="MoveTaskToNextLayer(this)">></button>
-                </div>
-            </div>
+            <div id="todo-task-list" data-status=0></div>
         </div>
-        <div class="card" id="doing-task-list">
+        <div class="card">
             <h1>Currently Doing</h1>
+            <div id="doing-task-list" data-status=1></div>
         </div>
-        <div class="card" id="done-task-list">
+        <div class="card">
             <h1>Done</h1>
+            <div id="done-task-list" data-status=2></div>
         </div>
     </div>
 
