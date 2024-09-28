@@ -80,13 +80,7 @@ function MoveTaskToNextStatus(button) {
     let item = button.parentElement.parentElement;
     let task = item.children[0].innerHTML;
     let status = parseInt(item.parentElement.getAttribute("data-status"));
-
-    console.log(item);
-    console.log(task);
-    console.log(status);
-
     if (status == 2) return;
-
     AddTask(task, status+1);
     RemoveTask(task, status);
 }
