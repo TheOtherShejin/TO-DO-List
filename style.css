@@ -48,6 +48,9 @@ body {
 
     border-radius: 10px;
     text-align: center;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 @media screen and (max-width: 500px) {
@@ -85,6 +88,7 @@ body {
     word-wrap: break-word;
     display: flex;
     justify-content: space-between;
+    text-align: left;
 
     background-color: rgb(18, 18, 18);
     border-top: 1px solid var(--item-border-color);

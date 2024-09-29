@@ -106,10 +106,6 @@ function Update() {
     for (let i = 0; i < 3; i++) {
         taskListElements[i].innerHTML = "";
         for (let j = 0; j < tasks[i].length; j++) {
-            if (j == 6) {
-                taskListElements[i].innerHTML += `<p class='EoL'>... (${tasks[i].length-j})<p>`;
-                break;
-            }
             taskListElements[i].innerHTML += GetItemFormat(tasks[i][j]);
         }
     }
