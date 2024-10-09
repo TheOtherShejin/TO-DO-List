@@ -149,3 +149,13 @@ body {
 #add-button:hover {
     background-color: var(--hover-background-color);
 }
+
+
+#credit {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+}
