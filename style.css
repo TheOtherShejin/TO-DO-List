@@ -78,7 +78,7 @@ body {
 }
 
 #done-card {
-    border: 2px solid rgb(123, 166, 37);
+    border: 2px solid rgb(69, 197, 0);
 }
 
 .item {
@@ -113,14 +113,14 @@ body {
     user-select: none;
 }
 
-
 .buttons {
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: auto auto;
-    justify-items: center;
-    align-items: center;
-    align-content: end;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--item-border-color);
+    border-radius: 5px;
+    align-self: center;
 }
 
 .close-button {
@@ -134,12 +134,26 @@ body {
 }
 
 .actions {
+    display: none;
+    z-index: 1;
+    position: relative;
+    right: 120px;
     background-color: var(--card-background-color);
     color: white;
     border: 1px solid var(--item-border-color);
     user-select: none;
     border-radius: 3px;
     transition: background-color 0.15s ease-in-out;
+    margin: 0px;
+    width: 150px;
+    height: 30px;
+}
+
+.buttons:hover .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .actions:hover {
@@ -151,7 +165,7 @@ body {
 }
 
 #credit {
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 0px;
     margin: 5px;
@@ -165,4 +179,11 @@ body {
 
 #credit a {
     margin: 2px;
+}
+
+.buttons > img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

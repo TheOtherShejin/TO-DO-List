@@ -10,10 +10,22 @@ function GetItemFormat(task) {
     return `<div class="item">
         <p>${task}</p>
         <div class="buttons">
-            <button class="up-button actions" onclick="MoveTaskUp(this)">/\\</button>
-            <button class="close-button actions" onclick="RemoveTaskButton(this)">x</button>
-            <button class="down-button actions" onclick="MoveTaskDown(this)">\\/</button>
-            <button class="move-button actions" onclick="MoveTaskToNextStatus(this)">></button>
+            <img src="icons/settings.svg">
+            <button class="up-button actions" onclick="MoveTaskUp(this)">
+                <img src="icons/arrow_up.svg"> Move Up
+            </button>
+            <button class="down-button actions" onclick="MoveTaskDown(this)">
+                <img src="icons/arrow_down.svg"> Move Down
+            </button>
+            <button class="move-button actions" onclick="MoveTaskToNextStatus(this)">
+                <img src="icons/arrow_right.svg"> Update Status
+            </button>
+            <button class="move-button actions" onclick="MoveTaskToPreviousStatus(this)">
+                <img src="icons/arrow_left.svg"> Revert Status
+            </button>
+            <button class="close-button actions" onclick="RemoveTaskButton(this)">
+                <img src="icons/close.svg"> Remove
+            </button>
         </div>
     </div>`;
 }
@@ -83,6 +95,15 @@ function MoveTaskToNextStatus(button) {
     let status = parseInt(item.parentElement.getAttribute("data-status"));
     if (status == 2) return;
     AddTask(task, status+1);
+    RemoveTask(task, status);
+}
+
+function MoveTaskToPreviousStatus(button) {
+    let item = button.parentElement.parentElement;
+    let task = item.children[0].innerHTML;
+    let status = parseInt(item.parentElement.getAttribute("data-status"));
+    if (status == 0) return;
+    AddTask(task, status-1);
     RemoveTask(task, status);
 }
 
