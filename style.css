@@ -150,12 +150,19 @@ body {
     background-color: var(--hover-background-color);
 }
 
-
 #credit {
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    top: 0px;
+    left: 0px;
     margin: 5px;
     text-decoration: none;
     color: white;
+}
+
+#credit p {
+    margin: 2px;
+}
+
+#credit a {
+    margin: 2px;
 }
